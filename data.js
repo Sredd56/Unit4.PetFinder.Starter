@@ -1,57 +1,23 @@
-// database of pets, pets breed, pet age, owners name , telephone numbers, and appointments
-const pets = [
-    {
-        id: 1,
-        name: 'Fido',
-        breed: 'Labrador',
-        age: 3,
-        owner: 'John',
-        telephone: '555-555-5555',
-        appointments: [
+// Import required modules
+const express = require('express');
+const app = express();
 
-            {
-                date: '01/01/2020',
-                time: '10:00',
-                reason: 'checkup'
-            },
-        ]
-    },
-    {
-        id: 2,
-        name: 'Spot',
-        breed: 'Poodle',
-        age: 2,
-        owner: 'Jane',
-        telephone: '555-555-5555',
-        appointments: [
-            {
-                date: '01/01/2020',
-                time: '10:00',
-                reason: 'checkup'
-            },
+// Import your data or connect to your database
+const pets = require('./data'); // Assuming you have a 'data.js' file exporting the pets array
 
-        ]
-    },
-    {
-        id: 3,
-        name: 'Rover',
-        breed: 'Pitbull',
-        age: 1,
-        owner: 'John',
-        telephone: '555-555-5555',
-        appointments: [
-            {
-                date: '01/01/2020',
-                time: '10:00',
-                reason: 'checkup'
-            },
-            {
-                date: '01/01/2020',
-                time: '10:00',
-                reason: 'checkup'
-            }
-        ]
-    }
-];
+// Define your routes
+// GET - all pets
+app.get('/api/v1/pets', (req, res) => {
+    // Logic to retrieve all pets
+});
 
-module.exports = pets;
+// GET - pet by name
+app.get('/api/v1/pets/:name', (req, res) => {
+    // Logic to retrieve a pet by name
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000; // Use the provided port or default to 3000
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
